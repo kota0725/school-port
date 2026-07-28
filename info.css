@@ -1,0 +1,514 @@
+@charset "UTF-8";
+
+/* ==========================================
+   ベース設定 & LP共通カラー変数
+   ========================================== */
+:root {
+    --color-main: #1a73e8;
+    /* 塾メインカラー（青） */
+    --color-main-dark: #1557b0;
+    /* ホバー時等の濃い青 */
+    --color-bg-base: #f4f9ff;
+    /* 全体背景色（極めて薄い青） */
+    --color-text-title: #1a202c;
+    /* 見出し文字 */
+    --color-text-body: #4a5568;
+    /* 本文文字 */
+    --color-border: #e2e8f0;
+    /* ボーダー枠線 */
+    --color-card-bg: #ffffff;
+    /* カード背景（白） */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-base);
+    color: var(--color-text-body);
+    background-color: var(--color-bg-base);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+      ヘッダー全体
+      ========================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    width: 100%;
+}
+
+/* ロゴ */
+.logo {
+    flex-shrink: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    display: block;
+    width: 92px;
+    height: auto;
+}
+
+/* スマホではグローバルナビを非表示 */
+.global-nav {
+    display: none;
+}
+
+/* CTAボタン */
+.header-cta-group {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 6px;
+    min-width: 0;
+}
+
+.btn-cta {
+    flex: 1;
+    max-width: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 6px 4px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #FFFFFF;
+    white-space: normal;
+    transition: opacity 0.2s ease;
+}
+
+.btn-cta:hover {
+    opacity: 0.8;
+}
+
+.trial-btn {
+    background-color: #38BDF8;
+}
+
+.doc-btn {
+    background-color: #F43F5E;
+}
+
+.consult-btn {
+    background-color: #22C55E;
+}
+
+
+/* ==========================================
+   メインコンテンツ
+   ========================================== */
+.legal-main {
+    padding-top: 105px;
+    /* スマホでのヘッダー被り防止 */
+    padding-bottom: 40px;
+}
+
+.page-title {
+    font-size: 1.35rem;
+    color: var(--color-text-title);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 24px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.page-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-main);
+    border-radius: 2px;
+}
+
+/* テーブル風リスト (モバイル：縦並び) */
+.legal-content {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+}
+
+.legal-table {
+    margin: 0;
+    padding: 0;
+}
+
+.legal-row {
+    display: flex;
+    flex-direction: column;
+    /* スマホでは縦並び */
+    border-bottom: 1px solid var(--color-border);
+}
+
+.legal-row:last-child {
+    border-bottom: none;
+}
+
+.legal-row dt {
+    width: 100%;
+    background-color: var(--color-card-bg);
+    color: var(--color-main);
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* 内容 (dd)：白背景 */
+.legal-row dd {
+    width: 100%;
+    background-color: var(--color-card-bg);
+    color: var(--color-text-body);
+    margin: 0;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    font-size: 0.875rem;
+    word-break: break-all;
+}
+
+/* ページ下部への戻るボタン */
+.bottom-back-link {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.bottom-back-link a {
+    display: inline-block;
+    color: var(--color-main);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.bottom-back-link a:hover {
+    color: var(--color-main-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================
+   フッターセクション
+   ========================================== */
+.site-footer {
+    background-color: #f0f4f9;
+    /* ワイヤーフレームの薄いブルーベース */
+    padding: 40px 20px 30px 20px;
+    font-family: sans-serif;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 左側（上部）：ロゴと塾情報 */
+.footer-info {
+    margin-bottom: 30px;
+}
+
+.footer-info .logo {
+    max-width: 180px;
+    /* ロゴの表示サイズを適切に制限 */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-info .logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-info p {
+    font-size: 13px;
+    color: #475569;
+    /* 落ち着いたダークグレー */
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 右側（下部）：ナビゲーションメニュー */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 💡 モバイル版はワイヤーフレーム通り綺麗な2列 */
+    gap: 12px 20px;
+}
+
+.footer-nav li {
+    margin: 0;
+}
+
+.footer-nav a {
+    display: inline-block;
+    color: #1a73e8;
+    /* リンクカラー */
+    font-size: 13px;
+    text-decoration: none;
+    position: relative;
+    padding-left: 12px;
+    transition: color 0.2s ease;
+}
+
+/* ワイヤーフレームにあるリンク左側の「＞」マークを再現 */
+.footer-nav a::before {
+    content: '＞';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #1a73e8;
+}
+
+.footer-nav a:hover {
+    color: #0b57d0;
+    text-decoration: underline;
+}
+
+
+
+
+
+/* ==========================================
+   3. デスクトップ向けスタイル (768px以上)
+   ========================================== */
+@media (min-width: 768px) {
+    .container {
+        max-width: 900px;
+        padding: 0 20px;
+    }
+
+    /* ヘッダーの中身を上下中央揃えにし、左右の端に綺麗に分散配置（1行の横並び） */
+    .header-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+    }
+
+    .logo {
+        width: auto;
+        /* スマホ用の横幅100%を解除 */
+    }
+
+    .logo img {
+        width: 180px;
+        /* デスクトップのロゴサイズを大きく際立たせる */
+        padding-right: 10px;
+    }
+
+    /* 隠していたPC用メニュー（ナビゲーション）を中央〜右寄りに表示 */
+    .global-nav {
+        display: block;
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    /* メニューの箇条書き（li）を横並びに整列 */
+    .global-nav ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* メニューの文字が絶対に途中で縦に改行（潰れ）しないように防ぐ */
+    .global-nav li {
+        white-space: nowrap;
+    }
+
+    /* メニューのリンク文字のデザイン */
+    .global-nav a {
+        text-decoration: none;
+        color: var(--color-text-title);
+        font-size: 14px;
+        font-weight: 700;
+        transition: color 0.2s ease;
+    }
+
+    .global-nav a:hover {
+        color: var(--color-main);
+        /* ホバー時に青色に */
+    }
+
+    /* PCでは右端に3つのボタンをコンパクトに配置 */
+    .header-cta-group {
+        width: auto;
+        /* スマホ用の横幅100%を解除 */
+        gap: 10px;
+    }
+
+    /* ボタン単体のサイズを小さく上品に調整 */
+    .btn-cta {
+
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 11px;
+        /* もしこれでも溢れるなら 10.5px にしてみてください */
+        font-weight: 700;
+        line-height: 1.4;
+        /* 行間を綺麗に広げる */
+        padding: 8px 2px;
+        /* 上下の余白を少し削って文字スペースを確保 */
+        border-radius: 4px;
+        text-decoration: none;
+        color: #FFFFFF;
+
+        /* ⚠️ ここがポイント：最初に入っていた white-space: nowrap; を削除するか、コメントアウトしてください */
+        /* white-space: nowrap; */
+    }
+
+
+    /* メインコンテンツ (PC) */
+    .legal-main {
+        padding-top: 140px;
+        padding-bottom: 60px;
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+        margin-bottom: 40px;
+        padding-bottom: 12px;
+    }
+
+    .page-title::after {
+        width: 60px;
+    }
+
+    .legal-content {
+        border-radius: 12px;
+    }
+
+    /* テーブル風リスト (PC：横並び) */
+    .legal-row {
+        flex-direction: row;
+        /* 横並びに戻す */
+    }
+
+    .legal-row dt {
+        width: 30%;
+        font-size: 0.95rem;
+        padding: 20px;
+        border-bottom: none;
+        background-color: var(--color-bg-base);
+        border-right: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+    }
+
+    .legal-row dd {
+        width: 70%;
+        font-size: 0.95rem;
+        padding: 20px;
+        background-color: var(--color-card-bg);
+    }
+
+
+
+    /* ==========================================
+           フッターセクション（PC版レイアウト）
+           ========================================== */
+    .site-footer {
+        padding: 60px 40px;
+        /* PCは上下にゆとりを持たせる */
+    }
+
+    /* 横並びにして左右の端にきれいに分散配置 */
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-info {
+        margin-bottom: 0;
+        flex: 0 0 350px;
+        /* 左側の情報エリアの幅を固定 */
+    }
+
+    .footer-info .logo {
+        max-width: 200px;
+        /* PC版はロゴを少し大きく */
+        margin-bottom: 18px;
+    }
+
+    .footer-info p {
+        font-size: 14px;
+    }
+
+    /* ナビゲーションメニューをPC用に綺麗に展開 */
+    .footer-nav {
+        flex: 1;
+        max-width: 650px;
+        /* 右側に寄りすぎないように幅を制限 */
+    }
+
+    .footer-nav ul {
+        grid-template-columns: repeat(3, 1fr);
+        /* 💡 PC版は横幅に合わせてスッキリ3列（または2列） */
+        gap: 16px 30px;
+    }
+
+    .footer-nav a {
+        font-size: 14px;
+    }
+
+}

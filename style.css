@@ -1,0 +1,2790 @@
+@charset "UTF-8";
+
+/* ==========================================
+      共通・変数定義 (カラー＆フォント)
+      ========================================== */
+:root {
+    --color-main: #2563EB;
+    /* メイン */
+    --color-accent: #F59E0B;
+    /* アクセント */
+    --color-bg-base: #F8FEFF;
+    /* 全体背景 */
+    --color-bg-section: #EEF5FF;
+    /* セクション背景 */
+    --color-bg-card: #FFFFFF;
+    /* カード背景 */
+    --color-text-title: #1E293B;
+    /* 見出し文字 */
+    --color-text-body: #475569;
+    /* 本文文字 */
+    --color-text-sub: #64748B;
+    /* 補助文字 */
+    --color-border: #DCE8F7;
+    /* ボーダー */
+
+    --font-base: 'Noto Sans JP', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    font-family: var(--font-base);
+    color: var(--color-text-body);
+    background-color: var(--color-bg-base);
+    padding-top: 64px;
+    /* 固定ヘッダー分 */
+    margin: 0;
+}
+
+/* ==========================================
+      ヘッダー全体
+      ========================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    width: 100%;
+}
+
+/* ロゴ */
+.logo {
+    flex-shrink: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    display: block;
+    width: 92px;
+    height: auto;
+}
+
+/* スマホではグローバルナビを非表示 */
+.global-nav {
+    display: none;
+}
+
+/* CTAボタン */
+.header-cta-group {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 6px;
+    min-width: 0;
+}
+
+.btn-cta {
+    flex: 1;
+    max-width: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 6px 4px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #FFFFFF;
+    white-space: normal;
+    transition: opacity 0.2s ease;
+}
+
+.btn-cta:hover {
+    opacity: 0.8;
+}
+
+.trial-btn {
+    background-color: #38BDF8;
+}
+
+.doc-btn {
+    background-color: #F43F5E;
+}
+
+.consult-btn {
+    background-color: #22C55E;
+}
+
+
+/* ==========================================
+   ファーストビュー（背景画像＋ワイヤーフレーム構成）
+   ========================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 95vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px 16px 40px 16px;
+    box-sizing: border-box;
+
+    background-image: url('../img/consept.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* 👈 400%から微調整。顔が少し下がり、文字の下（隙間）に綺麗にのぞく位置に調整しました */
+    background-position: center 38%;
+}
+
+/* ★背景のモヤ：上の文字部分（0%付近）の白を少しだけ濃くして文字の視認性をUP */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(248, 254, 255, 0.6) 0%,
+            /* 上部は文字を読みやすく */
+            rgba(248, 254, 255, 0.1) 35%,
+            /* 写真部分はクッキリ */
+            rgba(248, 254, 255, 0.1) 65%,
+            rgba(248, 254, 255, 0.5) 100%);
+    z-index: 1;
+}
+
+/* コンテンツ全体 */
+.hero-inner-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+/* --- 上段：テキスト --- */
+.hero-text-top {
+    margin-top: 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.hero-title {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-title);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.text-highlight {
+    color: #F59E0B;
+    /* 塾のイメージに合う鮮やかなブルー */
+    font-weight: bold;
+}
+
+.hero-subtext {
+    font-size: 13.5px;
+    color: var(--color-text-body);
+    line-height: 1.6;
+}
+
+/* --- 下段エリア（セット配置） --- */
+.hero-bottom-set {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    /* 👈 女の子の顔をしっかり出すため、文字との隙間を大きくキープ */
+    margin-top: 300px;
+}
+
+/* ★3つの白いカード：スマホでも絶対に縦割れせず、綺麗な横並びを維持する設定 */
+.hero-features-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    /* 横並びがはみ出さないよう隙間を少しタイトに */
+    width: 100%;
+}
+
+.feature-card {
+    flex: 1;
+    /* 3つの幅を均等に引き伸ばす */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 12px 2px;
+    /* スマホで文字が溢れないよう、左右の余白を最小限に */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 1px solid rgba(220, 232, 247, 0.9);
+}
+
+/* 画像を使わないアイコン（丸い土台） */
+.card-icon {
+    width: 36px;
+    /* スマホ用に一回り小さく調整 */
+    height: 36px;
+    background-color: #e6f0fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon i {
+    color: #1a73e8;
+    font-size: 19px;
+}
+
+.card-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--color-text-title);
+    line-height: 1.3;
+}
+
+/* 仮の絵文字アイコン（本番用はSVGや文字に自由に変えてください） */
+.icon-person::before {
+    content: "👤";
+    font-size: 15px;
+}
+
+.icon-chart::before {
+    content: "📈";
+    font-size: 15px;
+}
+
+.icon-support::before {
+    content: "🤝";
+    font-size: 15px;
+}
+
+.card-label {
+    font-size: 11px;
+    /* 👈 ここが重要！11pxにすることで、スマホ画面でも綺麗に収まります */
+    font-weight: 700;
+    color: var(--color-text-title);
+    line-height: 1.3;
+}
+
+/* CTAエリア */
+.hero-cta-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.cta-badge {
+    background-color: #FFECEF;
+    color: #F43F5E;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #F43F5E;
+    margin-bottom: -6px;
+    z-index: 3;
+}
+
+.btn-main-orange {
+    width: 100%;
+    background: linear-gradient(to right, #F59E0B, #EA580C);
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+
+    transition: all 0.3s ease;
+}
+
+.btn-main-orange:hover {
+    /* 少し上に浮き上がらせる */
+    transform: translateY(-3px);
+    /* 浮き上がった分、影を少し広げて濃くする */
+    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45);
+    /* ほんの少しだけ明るくして、押せる感を出す */
+    opacity: 0.9;
+}
+
+.btn-sub-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-main);
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   お悩みセクション（基本・スマホ版）
+   ========================================== */
+.problems-section {
+    background-color: #f4f9ff;
+    /* 全体の背景：薄い水色ベース */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.problems-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* セクションタイトル */
+.problems-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.problems-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+.section-lead {
+    font-size: 13px;
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* リスト全体の枠 */
+.problem-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* スマホは縦並び */
+    gap: 12px;
+    /* カード同士の隙間 */
+}
+
+/* 各チェックリストのカード */
+.problem-list li {
+    background-color: #ffffff;
+    border: 1px solid #1a73e8;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* 左寄せ */
+    gap: 12px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.05);
+}
+
+/* チェックアイコンの調整 */
+.problem-list li i {
+    color: #1a73e8;
+    /* アップゼミのメインブルー */
+    font-size: 18px;
+    flex-shrink: 0;
+    /* アイコンが文字に押されて潰れるのを防ぐ */
+}
+
+/* テキストの調整 */
+.problem-list li span {
+    font-size: 14px;
+    color: #2d3748;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   悩み解決セクション
+   ========================================== */
+.solution-section {
+    background-color: #ffffff;
+    /* お悩みセクションとメリハリをつけるため背景は白 */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.solution-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.solution-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    display: block;
+}
+
+.solution-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+/* 「当塾が選ばれる理由」の文字の下に短い線をつける */
+.solution-section .section-lead {
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    display: block;
+}
+
+/* カードを包むグリッド構造 */
+.card-grid.column-5 {
+    display: flex;
+    flex-direction: column;
+    /* スマホは縦に並べる */
+    gap: 20px;
+}
+
+/* 各解決カード */
+.solution-section .feature-card {
+    background-color: #ffffff;
+    border: 1px solid #edf2f7;
+    /* 薄いグレーのフチ */
+    border-radius: 8px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 中央揃え */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    /* 柔らかい影 */
+}
+
+/* アイコンフォントを包む円 */
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f7ff;
+    /* 極めて薄い青 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.icon-circle i {
+    color: #1a73e8;
+    /* メインの青 */
+    font-size: 22px;
+}
+
+/* カード内のタイトル (例: 完全個別指導) */
+.solution-section .feature-card h3 {
+    font-size: 16px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* カード内の説明文 */
+.solution-section .feature-card p {
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* ==========================================
+   成績アップ実績セクション
+   ========================================== */
+.results-section {
+    background-color: #f4f9ff;
+    /* 薄い水色の背景 */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.results-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.results-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+/* タイトル下の青い線（お悩みセクションと統一） */
+.results-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+    /* メインカラーの青 */
+}
+
+.results-section .section-lead {
+    font-size: 13px;
+    color: #4a5568;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* カードの配置 */
+.card-grid.column-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* 実績カード本体 */
+.result-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    /* アイコンとテキストを横並びで中央揃え */
+    gap: 20px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+/* アイコン部分 */
+.result-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e8f0fe;
+    /* 薄い青背景 */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.result-icon i {
+    color: #1a73e8;
+    /* 上昇グラフは青 */
+    font-size: 24px;
+}
+
+/* テキストコンテンツのラッパー */
+.result-content {
+    flex: 1;
+}
+
+/* 生徒情報（中2 Aさん 数学 など） */
+.student-info {
+    display: block;
+    font-size: 13px;
+    color: #718096;
+    margin-bottom: 4px;
+}
+
+/* 点数の推移 */
+.score {
+    font-size: 16px;
+    color: #2d3748;
+    margin: 0;
+}
+
+.score strong {
+    font-size: 20px;
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* 〇〇点UP！の強調テキスト */
+.score-up {
+    font-size: 14px;
+    color: #ea580c;
+    /* オレンジ、または赤系で目立たせる */
+    font-weight: 700;
+    margin: 2px 0 0 0;
+}
+
+/* その他の実績を見るリンク */
+.more-link a {
+    font-size: 14px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.more-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   授業風景・教室紹介セクション
+   ========================================== */
+.classroom-section {
+    background-color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.classroom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.classroom-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    display: block;
+}
+
+.classroom-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+.classroom-section .section-lead {
+    font-size: 14px;
+    color: #4a5568;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+/* 縦に3つ並べるコンテナ */
+.classroom-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* 各ブロックの間の隙間 */
+}
+
+.classroom-block h3 {
+    font-size: 16px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* 各スライダー（横スクロール設定） */
+.classroom-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 20px 15px 20px;
+    scrollbar-width: none;
+    /* Firefox用バー非表示 */
+}
+
+.classroom-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari用バー非表示 */
+}
+
+/* スライドされる各画像枠 */
+.classroom-slider .slide {
+    flex: 0 0 85%;
+    /* スマホ画面の85%幅にして右端をチラ見えさせる */
+    scroll-snap-align: center;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.classroom-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* 画像全体をきれいに収める */
+}
+
+/* PC限定リンクはスマホで消す */
+.pc-only {
+    display: none;
+}
+
+
+/* ==========================================
+   保護者・生徒の声セクション
+   ========================================== */
+.voice-section {
+    background-color: #f4f9ff;
+    /* 📝 前後の白セクションとメリハリをつけるため、極めて薄い青の背景 */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.voice-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    display: block;
+}
+
+/* タイトル下の青い線 */
+.voice-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+.voice-section .section-lead {
+    font-size: 14px;
+    color: #4a5568;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+/* カードを縦に並べるグループ（既存の grid をスマホ用に調整） */
+.voice-section .card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.voice-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* 各音声カード */
+.voice-card {
+    background-color: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    /* 👈 アイコンとテキストを横並びに */
+    align-items: flex-start;
+    /* 👈 上揃え */
+    gap: 15px;
+    /* 👈 アイコンとテキストの間の隙間 */
+    text-align: left;
+    /* 👈 文章は左寄せ */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+/* 👤 CSSで再現する人型グラフィックアイコン */
+.voice-card .avatar {
+    flex-shrink: 0;
+    /* 👈 画面幅が狭まってもアイコンが潰れないように固定 */
+    width: 45px;
+    height: 45px;
+    background-color: #e2e8f0;
+    /* 薄いグレーの丸型 */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* アイコンの頭の部分 */
+.voice-card .avatar::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: #1a73e8;
+    /* 塾のメインカラー（青）の頭 */
+    border-radius: 50%;
+}
+
+/* アイコンの体（肩）の部分 */
+.voice-card .avatar::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 18px;
+    background-color: #1a73e8;
+    /* 塾のメインカラー（青）の体 */
+    border-radius: 50% 50% 0 0;
+}
+
+/* カード右側のテキストを包む要素（構造保持のため） */
+.voice-card .comment {
+    font-size: 14px;
+    color: #1a202c;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* 投稿者（中2 保護者など）の文字 */
+.voice-card .reviewer {
+    display: block;
+    font-size: 13px;
+    color: #718096;
+    text-align: right;
+}
+
+/* 下部にある「※もっと見る」のリンク記述 */
+.voice-section .more-link {
+    margin-top: 30px;
+}
+
+.voice-section .more-link a {
+    font-size: 14px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.voice-section .more-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* ==========================================
+   料金案内セクション
+   ========================================== */
+
+.price-section {
+    background-color: #ffffff;
+    padding: 60px 12px;
+}
+
+.price-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #DCE8F7);
+    border-radius: 12px;
+    padding: 28px 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.price-section .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-title, #1E293B);
+    text-align: center;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.price-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+    margin: 0;
+    border-radius: 0;
+}
+
+.price-section .section-lead {
+    font-size: 14px;
+    color: #4a5568;
+    text-align: center;
+    margin-top: 28px;
+    margin-bottom: 40px;
+}
+
+/* --- 共通費用（入会金・教材費）カード --- */
+.common-price-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.common-price-item {
+    flex: 1;
+    background-color: #F0F7FF;
+    border: 1px solid #CCE3FF;
+    border-radius: 8px;
+    padding: 10px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.common-price-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #2563EB;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.common-price-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.common-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.common-value {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #2563EB;
+    /* 改行防止設定 */
+    white-space: nowrap;
+}
+
+.common-value.highlight {
+    color: #EA580C;
+    font-size: 16px;
+}
+
+.tax-note {
+    font-size: 10px;
+    font-weight: 400;
+    color: #64748B;
+    /* 改行防止設定 */
+    white-space: nowrap;
+}
+
+/* --- タブボタン --- */
+.price-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E2E8F0;
+    padding-bottom: 2px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 4px;
+    background-color: #F1F5F9;
+    border: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748B;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.tab-btn i {
+    font-size: 12px;
+}
+
+.tab-btn.active {
+    background-color: var(--color-main, #2563EB);
+    color: #ffffff;
+    box-shadow: 0 -2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.tab-btn.active i {
+    color: #ffffff;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: #E2E8F0;
+    color: #1E293B;
+}
+
+/* --- タブコンテンツ制御 --- */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* コース概要ヘッダー */
+.course-header {
+    background: linear-gradient(135deg, #EFF6FF 0%, #F0F7FF 100%);
+    border-left: 4px solid var(--color-main, #2563EB);
+    padding: 12px 14px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.course-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.course-title i {
+    color: #F59E0B;
+}
+
+.course-desc {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* --- 料金表テーブル --- */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.price-table th,
+.price-table td {
+    border: 1px solid #DCE8F7;
+    padding: 10px 12px;
+    font-size: 13.5px;
+}
+
+.price-table thead th {
+    background-color: #2563EB;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+}
+
+.price-table tbody th {
+    background-color: #F8FAFC;
+    color: #1E293B;
+    font-weight: 700;
+    text-align: center;
+    width: 35%;
+}
+
+.price-table tbody td {
+    color: #1E293B;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 16px;
+}
+
+/* 注意書き */
+.price-notes {
+    font-size: 11.5px;
+    color: #64748B;
+    line-height: 1.6;
+    text-align: left;
+    margin-top: 16px;
+}
+
+
+
+/* ==========================================
+   無料体験の流れセクション
+   ========================================== */
+.flow-section {
+    background-color: #f4f9ff;
+    /* 薄い青背景 */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.flow-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    display: block;
+}
+
+.flow-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+.flow-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 480px;
+}
+
+/* 各カードのレイアウトを横並び（flex）に */
+.flow-steps li {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 40px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    display: flex;
+    /* 👈 左右に並べる */
+    align-items: center;
+    gap: 20px;
+    /* 左エリアと右エリアの間隔 */
+    text-align: left;
+    /* テキストは左揃え */
+}
+
+.flow-steps li:last-child {
+    margin-bottom: 0;
+}
+
+/* 左側：番号とアイコンのエリア */
+.step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 64px;
+    /* 幅を固定して右側テキストの開始位置を揃える */
+}
+
+/* 青い丸の番号 */
+.flow-steps .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #4299e1;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ✨ 新設：アイコンを囲む丸い枠。競合を避けて確実にド真ん中へ配置します */
+.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    /* 丸のサイズ */
+    height: 48px;
+    /* 丸のサイズ */
+    background-color: #ebf8ff;
+    /* 薄い青地 */
+    border-radius: 50%;
+}
+
+/* ✨ 変更：Font Awesome アイコン自体は色と大きさの指定のみにする */
+.flow-icon {
+    color: #3182ce;
+    font-size: 20px;
+}
+
+/* 右側：テキストエリア */
+.step-right {
+    flex: 1;
+}
+
+.flow-steps h3 {
+    font-size: 16px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.flow-steps p {
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* スマホ用のステップ間を繋ぐ下矢印（カードの下側中央に配置） */
+.flow-steps li:not(:last-child)::after {
+    content: '↓';
+    position: absolute;
+    bottom: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #cbd5e0;
+}
+
+
+
+/* ==========================================
+   よくある質問セクション（スマホ版）
+   ========================================== */
+.faq-section {
+    background-color: #ffffff;
+    /* 白背景 */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: 22px;
+    color: #1a202c;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    display: block;
+}
+
+.faq-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #1a73e8;
+}
+
+.faq-list {
+    max-width: 480px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* アコーディオン同士の隙間 */
+}
+
+/* アコーディオンカード枠 */
+.faq-item {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 質問部分（ヘッダー） */
+.faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2d3748;
+    cursor: pointer;
+    list-style: none;
+    /* デフォルトの三角形矢印を消す（Chrome/Firefox） */
+    position: relative;
+}
+
+/* Safari用の三角形矢印を非表示にする対策 */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* 右端の「＋」アイコンを擬似要素で作成 */
+.faq-item summary::after {
+    content: '＋';
+    font-size: 16px;
+    color: #3182ce;
+    /* 塾のイメージ青 */
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+/* アコーディオンが開いているときのスタイル */
+.faq-item[open] {
+    border-color: #bee3f8;
+    /* 開いた時は少し青枠に */
+    box-shadow: 0 4px 12px rgba(49, 130, 206, 0.05);
+}
+
+/* アコーディオンが開いたとき、右端の「＋」を「ー」に変更 */
+.faq-item[open] summary::after {
+    content: 'ー';
+}
+
+/* 回答部分（インナー） */
+.faq-answer {
+    padding: 0 20px 18px;
+    font-size: 13.5px;
+    color: #4a5568;
+    line-height: 1.6;
+    border-top: 1px dashed #e2e8f0;
+    /* 回答の上に薄い破線 */
+    padding-top: 14px;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* 「その他の質問を見る」リンク */
+.more-link {
+    margin-top: 20px;
+}
+
+.more-link a {
+    color: #3182ce;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.more-link a:hover {
+    opacity: 0.8;
+}
+
+
+/* ==========================================
+   最後のCTAセクション
+   ========================================== */
+.final-cta-section {
+    background-color: #f4f9ff;
+    padding: 60px 0 0 0;
+    text-align: center;
+}
+
+.cta-header {
+    padding: 0 20px;
+    margin-bottom: 25px;
+}
+
+.cta-title {
+    position: relative;
+    font-size: 26px;
+    color: #1a202c;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* 💡 「無料体験」をドカンと大きく、青色にする */
+.cta-title .large-blue-text {
+    display: inline-block;
+    font-size: 42px;
+    /* 👈 圧倒的サイズ感 */
+    color: #1a73e8;
+    /* スクールカラーの鮮やかな青 */
+    font-weight: 900;
+    margin: 4px 0;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+/* 💡 「無料体験」の下にあるアンダーライン（黄〜オレンジ） */
+.cta-title .large-blue-text::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -5%;
+    width: 110%;
+    height: 6px;
+    background: linear-gradient(to right, #ff9800, #f59e0b);
+    border-radius: 4px;
+}
+
+/* 💡 最上部の「手書き風の集中線（3本線）」のバグ修正版 */
+.cta-title .light-lines {
+    position: absolute;
+    top: -20px;
+    /* 文字からの上の距離 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    /* 👈 これ自体を「真ん中の縦線」にする */
+    height: 12px;
+    background-color: #f59e0b;
+    border-radius: 2px;
+}
+
+/* 👈 左の斜め線 */
+.cta-title .light-lines::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: -10px;
+    /* 真ん中から左に10pxずらす */
+    width: 3px;
+    height: 12px;
+    background-color: #f59e0b;
+    border-radius: 2px;
+    transform: rotate(-25deg);
+    /* 左に傾ける */
+}
+
+/* 👈 右の斜め線 */
+.cta-title .light-lines::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    /* 真ん中から右に10pxずらす */
+    width: 3px;
+    height: 12px;
+    background-color: #f59e0b;
+    border-radius: 2px;
+    transform: rotate(25deg);
+    /* 右に傾ける */
+}
+
+/* リード文の微調整 */
+.final-cta-section .section-lead {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* リード文の中の「学び方」を青太文字に */
+.final-cta-section .highlight-blue {
+    color: #1a73e8;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/* 💡 背景写真をクッキリ濃く調整 */
+.cta-container {
+    /* グラデーションの白の不透明度を下げ、写真がしっかり見えるように変更 */
+    background-image: linear-gradient(to bottom, rgba(244, 249, 255, 0.6) 0%, rgba(244, 249, 255, 0) 20%, #f4f9ff 95%), url('../img/mobile-cta.png');
+    background-size: cover;
+    background-position: center 15%;
+    background-repeat: no-repeat;
+    padding: 260px 20px 40px 20px;
+    /* 写真の顔を出すために上部余白を確保 */
+}
+
+/* 3つのメリットカード */
+.cta-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
+    margin: 0 auto 35px auto;
+}
+
+.benefit-item {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.benefit-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background-color: #ebf8ff;
+    color: #1a73e8;
+    border-radius: 50%;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.benefit-text h3 {
+    font-size: 16px;
+    color: #1a73e8;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.benefit-text p {
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+/* 下部アクションエリア */
+.cta-action-box {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.action-sub {
+    font-size: 14px;
+    color: #1a73e8;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.btn-cta-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    /* 👈 FVの太さ（16px）に完全に揃えて、よりシャープに */
+    /* 💡 グラデーションをFVと同じ「左から右（to right）」、そして全く同じカラーコードに修正 */
+    background: linear-gradient(to right, #F59E0B, #EA580C);
+    color: #ffffff;
+    font-size: 18px;
+    /* 👈 19pxから18pxに微調整して凝縮感をFVと統一 */
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    /* 👈 FVと同じ綺麗なカプセル型（50px）に統一 */
+    /* 💡 影の色を右側の濃いオレンジ（#EA580C）ベースに修正し、光沢感を引き立てる */
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* 💡 マウスを乗せたときの浮き上がりと光沢（影）の連動 */
+.btn-cta-large:hover {
+    transform: translateY(-3px);
+    /* 👈 FVと同じくしっかり-3px浮き上がらせる */
+    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45);
+    /* 👈 浮き上がった分、影をボワッと強くして光沢感を強調 */
+    opacity: 0.9;
+    /* 👈 ほんのり明るくして「光った」ようなエフェクトに */
+}
+
+/* 右側の白丸矢印アイコン（位置を完全中央固定） */
+.btn-cta-large .arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    color: #f59e0b;
+    /* 👈 矢印の色もオレンジに */
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+/* 資料請求リンク */
+.sub-links {
+    margin-top: 20px;
+}
+
+.btn-cta-sub {
+    font-size: 14.5px;
+    color: #1a73e8;
+    /* 👈 青文字にして「リンクであること」を分かりやすく */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.btn-cta-sub:hover {
+    text-decoration: underline;
+}
+
+/* 💡 不要なオレンジ矢印（::after）の記述は完全に削除しました */
+
+/* お電話お問い合わせエリア */
+.phone-contact {
+    background-color: #e6f0fa;
+    padding: 35px 20px;
+    margin-top: 20px;
+}
+
+.phone-contact p {
+    font-size: 13px;
+    color: #4a5568;
+}
+
+.phone-number {
+    display: inline-block;
+    font-size: 28px;
+    color: #1a73e8;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 8px 0;
+}
+
+.phone-number i {
+    font-size: 24px;
+    margin-right: 4px;
+}
+
+.phone-time {
+    font-size: 12px;
+    color: #718096;
+}
+
+/* 矢印のピョコピョコ動くアニメーション */
+@keyframes bounce {
+
+    0%,
+    20%,
+    53%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-6px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+
+/* ==========================================
+   フッターセクション
+   ========================================== */
+.site-footer {
+    background-color: #f0f4f9;
+    /* ワイヤーフレームの薄いブルーベース */
+    padding: 40px 20px 30px 20px;
+    font-family: sans-serif;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 左側（上部）：ロゴと塾情報 */
+.footer-info {
+    margin-bottom: 30px;
+}
+
+.footer-info .logo {
+    max-width: 180px;
+    /* ロゴの表示サイズを適切に制限 */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-info .logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer-info p {
+    font-size: 13px;
+    color: #475569;
+    /* 落ち着いたダークグレー */
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 右側（下部）：ナビゲーションメニュー */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 💡 モバイル版はワイヤーフレーム通り綺麗な2列 */
+    gap: 12px 20px;
+}
+
+.footer-nav li {
+    margin: 0;
+}
+
+.footer-nav a {
+    display: inline-block;
+    color: #1a73e8;
+    /* リンクカラー */
+    font-size: 13px;
+    text-decoration: none;
+    position: relative;
+    padding-left: 12px;
+    transition: color 0.2s ease;
+}
+
+/* ワイヤーフレームにあるリンク左側の「＞」マークを再現 */
+.footer-nav a::before {
+    content: '＞';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #1a73e8;
+}
+
+.footer-nav a:hover {
+    color: #0b57d0;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   【PC版レイアウト】（画面幅 768px 以上）
+   ========================================== */
+@media (min-width: 768px) {
+
+    /* PCはヘッダーが低くなるので、全体のコンテンツが被らないように上部余白を調整 */
+    body {
+        padding-top: 90px;
+    }
+
+    /* ヘッダーの中身を上下中央揃えにし、左右の端に綺麗に分散配置（1行の横並び） */
+    .header-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 24px;
+    }
+
+    .logo {
+        width: auto;
+        /* スマホ用の横幅100%を解除 */
+    }
+
+    .logo img {
+        width: 180px;
+        /* デスクトップのロゴサイズを大きく際立たせる */
+        padding-right: 10px;
+    }
+
+    /* 隠していたPC用メニュー（ナビゲーション）を中央〜右寄りに表示 */
+    .global-nav {
+        display: block;
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    /* メニューの箇条書き（li）を横並びに整列 */
+    .global-nav ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* メニューの文字が絶対に途中で縦に改行（潰れ）しないように防ぐ */
+    .global-nav li {
+        white-space: nowrap;
+    }
+
+    /* メニューのリンク文字のデザイン */
+    .global-nav a {
+        text-decoration: none;
+        color: var(--color-text-title);
+        font-size: 14px;
+        font-weight: 700;
+        transition: color 0.2s ease;
+    }
+
+    .global-nav a:hover {
+        color: var(--color-main);
+        /* ホバー時に青色に */
+    }
+
+    /* PCでは右端に3つのボタンをコンパクトに配置 */
+    .header-cta-group {
+        width: auto;
+        /* スマホ用の横幅100%を解除 */
+        gap: 10px;
+    }
+
+    /* ボタン単体のサイズを小さく上品に調整 */
+    .btn-cta {
+
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 11px;
+        /* もしこれでも溢れるなら 10.5px にしてみてください */
+        font-weight: 700;
+        line-height: 1.4;
+        /* 行間を綺麗に広げる */
+        padding: 8px 2px;
+        /* 上下の余白を少し削って文字スペースを確保 */
+        border-radius: 4px;
+        text-decoration: none;
+        color: #FFFFFF;
+
+        /* ⚠️ ここがポイント：最初に入っていた white-space: nowrap; を削除するか、コメントアウトしてください */
+        /* white-space: nowrap; */
+    }
+
+
+    /*＝＝＝＝＝＝＝ヒーローセクション＝＝＝＝＝＝＝*/
+
+    .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 80px 10%;
+
+        /* 👈 ★ここを新しい画像「student.PNG」に変更します！ */
+        background-image: url('../img/student.PNG');
+        background-repeat: no-repeat;
+
+        /* 画像が画面からはみ出したり潰れたりしないよう、PC画面の右側に綺麗にフィットさせます */
+        background-size: contain;
+        /* 画像の全体（または縦）が収まるように */
+        background-position: right center;
+        /* 右側の中央に配置 */
+    }
+
+    .hero::before {
+        background: linear-gradient(to right,
+                rgba(248, 254, 255, 0.85)0%,
+                rgba(248, 254, 255, 0.7)40%,
+                rgba(248, 254, 255, 0)70%);
+    }
+
+    .hero-inner-content {
+        max-width: 550px;
+        text-align: left;
+        gap: 35px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .hero-subtext {
+        font-size: 16px;
+    }
+
+    .hero-bottom-set {
+        margin-top: 0;
+        gap: 30px;
+    }
+
+    .hero-features-grid {
+        max-width: 480px;
+        gap: 12px;
+    }
+
+    .feature-card {
+        padding: 16px 8px;
+    }
+
+    .card-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .card-icon i {
+        font-size: 22px;
+    }
+
+    .card-label {
+        font-size: 13px;
+    }
+
+    .hero-cta-area {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-top: 25px;
+        position: relative;
+    }
+
+    .cta-badge {
+        position: absolute;
+        top: -16px;
+        left: 50px;
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+    .btn-main-orange {
+        width: 280px;
+        padding: 18px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .btn-sub-link {
+        margin-top: 0;
+        width: 200px;
+        padding: 18px;
+        font-size: 16px;
+        background-color: #ffffff;
+        border: 1px solid #ea580c;
+        color: #ea580c;
+        border-radius: 50px;
+        text-decoration: none;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    .btn-sub-link:hover {
+        background-color: #fff7ed;
+    }
+
+
+
+
+    /*＝＝＝＝＝＝悩みセクション＝＝＝＝＝＝*/
+
+    .problems-section {
+        padding: 80px 40px;
+    }
+
+    .problems-section h2 {
+        font-size: 28px;
+    }
+
+    /* ワイヤーフレームにあるタイトルの下の短い下線（装飾） */
+    .problems-section h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: #1a73e8;
+    }
+
+    .section-lead {
+        font-size: 15px;
+        margin-top: 15px;
+        margin-bottom: 40px;
+    }
+
+    /* PC版：5本のカードを横並びにする（はみ出さず均等に） */
+    .problem-list {
+        flex-direction: row;
+        /* 横並びに変更 */
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .problem-list li {
+        flex: 1;
+        /* 5つのカードを均等な横幅にする */
+        min-width: 0;
+        /* 横幅の計算崩れ防止 */
+        flex-direction: column;
+        /* PC版はアイコンが上、文字が下 */
+        align-items: center;
+        /* 中央揃え */
+        justify-content: center;
+        text-align: center;
+        padding: 24px 12px;
+        min-height: 150px;
+        /* 高さを揃える */
+    }
+
+    .problem-list li i {
+        font-size: 24px;
+        /* PC向けにアイコンを少し大きく */
+        margin-bottom: 8px;
+    }
+
+    .problem-list li span {
+        font-size: 13px;
+        /* 横並びで収まりを良くするため少し調整 */
+        line-height: 1.4;
+    }
+
+
+
+    /* ==========================================
+   悩み解決セクション
+   ========================================== */
+
+
+    .solution-section {
+        padding: 80px 40px;
+    }
+
+    .solution-section h2 {
+        font-size: 28px;
+    }
+
+    /* PC版：5つのカードを綺麗に横一列に並べる */
+    .card-grid.column-5 {
+        flex-direction: row;
+        /* 横並びにする */
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .solution-section .feature-card {
+        flex: 1;
+        min-width: 0;
+        padding: 30px 16px;
+
+        /* 👈 先ほどのように、テキスト量に関わらずすべてのカードの高さを綺麗に統一します！ */
+        min-height: 220px;
+        justify-content: flex-start;
+        /* 中身を上詰めに並べる */
+    }
+
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+
+    .icon-circle i {
+        font-size: 26px;
+    }
+
+    .solution-section .feature-card h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    .solution-section .feature-card p {
+        font-size: 13px;
+    }
+
+
+    /* ==========================================
+   成績アップ実績セクション
+   ========================================== */
+
+    /* --- ここからPC用メディアクエリの中に追加 --- */
+
+    .results-section {
+        padding: 80px 40px;
+    }
+
+    .results-section h2 {
+        font-size: 28px;
+    }
+
+    .results-section .section-lead {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    /* 3カラム横並び */
+    .card-grid.column-3 {
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    .result-card {
+        flex: 1;
+        min-width: 0;
+        flex-direction: column;
+        /* PC版はアイコンを上、テキストを下に */
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+        min-height: 200px;
+        /* カードの高さを揃える */
+        justify-content: center;
+    }
+
+    .result-icon {
+        margin-bottom: 12px;
+    }
+
+    .score {
+        font-size: 18px;
+    }
+
+    .score strong {
+        font-size: 24px;
+    }
+
+    .score-up {
+        font-size: 16px;
+        margin-top: 6px;
+    }
+
+
+    /* ==========================================
+   授業風景・教室紹介セクション
+   ========================================== */
+
+    .classroom-section {
+        padding: 80px 40px;
+    }
+
+    .classroom-section h2 {
+        font-size: 28px;
+    }
+
+    /* PC版では3カラム横並びにする */
+    .classroom-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    /* ブロックごとの並び順を「画像が上、文字が下」に変形 */
+    .classroom-block {
+        display: flex;
+        flex-direction: column-reverse;
+        /* 文字を下にするトリック */
+    }
+
+    .classroom-block h3 {
+        font-size: 16px;
+        margin-top: 16px;
+        margin-bottom: 0;
+    }
+
+    /* 横スクロールを解除し、枠に合わせる */
+    .classroom-slider {
+        display: block;
+        padding: 0;
+        overflow: visible;
+    }
+
+    /* 1枚目の写真だけを表示し、2枚目・3枚目はPCでは隠す */
+    .classroom-slider .slide {
+        display: none;
+        width: 100%;
+    }
+
+    .classroom-slider .slide:first-child {
+        display: block;
+        /* 1枚目だけ表示 */
+    }
+
+    /* PCリンクを表示 */
+    .pc-only {
+        display: block;
+    }
+
+    .classroom-section .more-link a {
+        font-size: 14px;
+        color: #1a73e8;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .classroom-section .more-link a:hover {
+        text-decoration: underline;
+    }
+
+
+    /* ==========================================
+   保護者・生徒の声セクション
+   ========================================== */
+
+    .voice-section {
+        padding: 80px 40px;
+    }
+
+    .voice-section h2 {
+        font-size: 28px;
+    }
+
+    /* PC版では3カラムの横並びグリッドにする */
+    .voice-section .card-grid.column-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    /* PC版でのカードの大きさを調整 */
+    .voice-card {
+        padding: 40px 32px;
+        /* 👈 上下左右の余白を大幅に広げてカードを大きくする */
+        gap: 20px;
+        /* 👈 アイコンと文字の間の隙間も少し広げる */
+        min-height: 200px;
+        /* 👈 最低限の高さを確保して、カードのサイズ感を揃える */
+    }
+
+    /* PC版だと文字も少し大きくするとバランスが良いです */
+    .voice-card .comment {
+        font-size: 15px;
+    }
+
+
+
+    /* ==========================================
+   料金案内セクション
+   ========================================== */
+
+    .price-section {
+        padding: 80px 20px;
+    }
+
+    .price-container {
+        padding: 40px;
+    }
+
+    .price-section .section-title {
+        font-size: 28px;
+    }
+
+    .price-section .section-lead {
+        font-size: 15px;
+    }
+
+    .common-price-box {
+        max-width: 520px;
+        margin: 0 auto 32px auto;
+        gap: 16px;
+    }
+
+    .common-price-item {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .common-price-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .common-label {
+        font-size: 12px;
+    }
+
+    .common-value {
+        font-size: 15px;
+    }
+
+    .common-value.highlight {
+        font-size: 18px;
+    }
+
+    .tab-btn {
+        font-size: 16px;
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .tab-btn i {
+        font-size: 15px;
+    }
+
+    .course-title {
+        font-size: 18px;
+    }
+
+    .course-desc {
+        font-size: 14px;
+    }
+
+    .price-table th,
+    .price-table td {
+        padding: 16px 24px;
+        font-size: 15px;
+    }
+
+    .price-table tbody th {
+        width: 30%;
+    }
+
+    .price-notes {
+        font-size: 13px;
+    }
+
+
+
+    /* ==========================================
+   無料体験の流れセクション
+   ========================================== */
+
+    .flow-section {
+        padding: 80px 40px;
+    }
+
+    .flow-section h2 {
+        font-size: 28px;
+        margin-bottom: 60px;
+    }
+
+    /* PC版では横一列（4カラム）に並べる */
+    .flow-steps {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1100px;
+        gap: 24px;
+    }
+
+    .flow-steps li {
+        flex: 1;
+        flex-direction: column;
+        /* PC版ではカード内を上から下の流れに戻す */
+        align-items: center;
+        text-align: center;
+        /* PCは中央寄せ */
+        margin-bottom: 0;
+        padding: 40px 20px;
+    }
+
+    .step-left {
+        margin-bottom: 20px;
+        min-width: auto;
+        /* スマホ用の固定幅を解除 */
+    }
+
+    .icon-circle {
+        width: 56px;
+        height: 56px;
+    }
+
+    .flow-icon {
+        font-size: 24px;
+    }
+
+    .flow-steps h3 {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    .flow-steps p {
+        font-size: 13.5px;
+    }
+
+    /* 縦矢印（↓）を消して、カード同士を繋ぐ横矢印（＞）を中央右に配置 */
+    .flow-steps li:not(:last-child)::after {
+        content: '＞';
+        position: absolute;
+        top: 50%;
+        right: -22px;
+        bottom: auto;
+        left: auto;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #cbd5e0;
+    }
+
+
+
+    /* ==========================================
+       よくある質問セクション
+       ========================================== */
+    .faq-section {
+        padding: 80px 40px;
+    }
+
+    .faq-section h2 {
+        font-size: 28px;
+        margin-bottom: 60px;
+    }
+
+    /* 5枚のカードを横並びに */
+    .faq-list {
+        display: flex;
+        flex-direction: row;
+        /* 横並び */
+        justify-content: space-between;
+        max-width: 1100px;
+        gap: 16px;
+        /* カード間のスペース */
+        margin: 0 auto 40px;
+        align-items: stretch;
+        /* すべてのカードの高さを一番高いものに揃える */
+    }
+
+    /* 各カードの設定 */
+    .faq-item {
+        flex: 1;
+        /* 5枚を均等な幅に広げる */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* 質問部分（ヘッダー） */
+    .faq-item summary {
+        padding: 24px 16px;
+        font-size: 14.5px;
+        display: flex;
+        align-items: center;
+        min-width: 94px;
+        /* 高さを一杯に広げる */
+        box-sizing: border-box;
+    }
+
+    /* 回答部分（PC向け余白調整） */
+    .faq-answer {
+        padding: 14px 16px 24px;
+        font-size: 13.5px;
+        box-sizing: border-box;
+    }
+
+
+
+
+    /* ==========================================
+   最後のCTAセクション（デザインブラッシュアップ版）
+   ========================================== */
+
+    .final-cta-section {
+        background-image: url('../img/student-cta.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .final-cta-section .cta-container {
+        display: block;
+        max-width: 1200px;
+        margin: 0 auto;
+        /* 💡 padding-topを480px → 320pxに凝縮し、下の余白もコンパクトに */
+        padding: 320px 40px 40px 40px;
+        background-image: none;
+        background-color: transparent;
+        position: relative;
+        text-align: left;
+    }
+
+    /* 文字エリア：上部にゆとりを持たせつつ配置 */
+    .final-cta-section .cta-header {
+        position: absolute;
+        top: 45px;
+        /* 💡 80px → 45pxに上げて上部をスッキリ */
+        left: 250px;
+        z-index: 10;
+        text-align: left;
+        width: 100%;
+        max-width: 460px;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 左側コンテンツ全体の横幅制限 */
+    .final-cta-section .cta-benefits,
+    .final-cta-section .cta-action-box {
+        max-width: 460px;
+        /* 💡 500pxから少しタイトにして凝縮感をアップ */
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    /* 文字サイズ全体の微凝縮 */
+    .final-cta-section .cta-title {
+        text-align: left;
+        font-size: 30px;
+        /* 💡 32px → 26px */
+        line-height: 1.25;
+    }
+
+    .final-cta-section .cta-title .large-blue-text {
+        font-size: 52px;
+        /* 💡 54px → 46px */
+        display: inline-block;
+        position: relative;
+    }
+
+    /* 集中線の位置をサイズに合わせて微調整 */
+    .final-cta-section .cta-title .light-lines {
+        left: 42px;
+        top: -14px;
+        transform: scale(0.85);
+        /* 💡 線のサイズも85%に縮小 */
+    }
+
+    .final-cta-section .section-lead {
+        text-align: left;
+        font-size: 16px;
+        /* 💡 16px → 14.5px */
+        margin-top: 12px;
+        /* 💡 間隔を少し詰める */
+        margin-bottom: 0;
+        line-height: 1.5;
+    }
+
+    /* 3つのメリット：比率はそのままサイズを縮小 */
+    .final-cta-section .cta-benefits {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-top: 25px;
+        /* 💡 35px → 25px */
+        margin-bottom: 30px;
+        /* 💡 40px → 30px */
+    }
+
+    .final-cta-section .benefit-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        flex: 1;
+        position: relative;
+    }
+
+    .final-cta-section .benefit-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -5px;
+        top: 20%;
+        width: 1px;
+        height: 60%;
+        border-right: 1px dashed #a0aec0;
+    }
+
+    /* アイコンを少し小さくして高さを削る */
+    .final-cta-section .benefit-icon-wrapper {
+        width: 62px;
+        /* 💡 76px → 62px */
+        height: 62px;
+        /* 💡 76px → 62px */
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        font-size: 22px;
+        /* 💡 28px → 22px */
+        margin-bottom: 8px;
+    }
+
+    .final-cta-section .benefit-text h3 {
+        font-size: 12px;
+        /* 💡 13px → 12px */
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .final-cta-section .benefit-text p {
+        display: none;
+    }
+
+    /* アクションボックス（ボタンエリア）の凝縮 */
+    .final-cta-section .cta-action-box {
+        text-align: center;
+    }
+
+    .final-cta-section .action-sub {
+        display: block;
+        font-size: 12px;
+        /* 💡 13.5px → 12px */
+        color: #1a73e8;
+        font-weight: 700;
+        margin-bottom: 8px;
+        /* 💡 12px → 8px */
+    }
+
+    .final-cta-section .btn-cta-large {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        padding: 16px;
+        /* FVと同じ太さに統一 */
+        /* 💡 FVとまったく同じ「左から右へのグラデーション」に設定 */
+        background: linear-gradient(to right, #F59E0B, #EA580C);
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 700;
+        border-radius: 40px;
+        /* 影も右側の濃い色に合わせて自然な立体感に */
+        box-shadow: 0 5px 15px rgba(234, 88, 12, 0.3);
+    }
+
+    .final-cta-section .btn-cta-large .arrow-icon {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        background-color: #ffffff;
+        /* 矢印の色は一番濃い右側の色に合わせると締まります */
+        color: #EA580C;
+        border-radius: 50%;
+        font-size: 12px;
+    }
+
+    .final-cta-section .sub-links {
+        margin-top: 10px;
+        /* 💡 15px → 10px */
+    }
+
+    .final-cta-section .btn-cta-sub {
+        font-size: 14px;
+        /* 💡 15px → 14px */
+    }
+
+    /* 電話コンタクトエリアも高さをスリムにして上に引き上げる */
+    .final-cta-section .phone-contact {
+        background-color: #e6f0fa;
+        margin-top: 0;
+        padding: 25px 20px;
+        /* 💡 上下 40px → 25px に縮小 */
+    }
+
+
+    /* ==========================================
+           フッターセクション（PC版レイアウト）
+           ========================================== */
+    .site-footer {
+        padding: 60px 40px;
+        /* PCは上下にゆとりを持たせる */
+    }
+
+    /* 横並びにして左右の端にきれいに分散配置 */
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-info {
+        margin-bottom: 0;
+        flex: 0 0 350px;
+        /* 左側の情報エリアの幅を固定 */
+    }
+
+    .footer-info .logo {
+        max-width: 200px;
+        /* PC版はロゴを少し大きく */
+        margin-bottom: 18px;
+    }
+
+    .footer-info p {
+        font-size: 14px;
+    }
+
+    /* ナビゲーションメニューをPC用に綺麗に展開 */
+    .footer-nav {
+        flex: 1;
+        max-width: 650px;
+        /* 右側に寄りすぎないように幅を制限 */
+    }
+
+    .footer-nav ul {
+        grid-template-columns: repeat(3, 1fr);
+        /* 💡 PC版は横幅に合わせてスッキリ3列（または2列） */
+        gap: 16px 30px;
+    }
+
+    .footer-nav a {
+        font-size: 14px;
+    }
+
+}

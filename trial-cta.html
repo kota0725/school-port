@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無料体験授業お申し込み | 個別指導塾ステップアップゼミ</title>
+
+    <link rel="icon" href="img/favi1.png" sizes="any">
+
+    <!-- Google Fonts (Noto Sans JP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 1. リセットCSS (destyle.css) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css">
+
+    <!-- 2. 独自スタイルシート -->
+    <link rel="stylesheet" href="css/cta.css">
+</head>
+
+<body>
+
+    <!-- ヘッダー -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- ロゴ画像の配置 -->
+            <a href="index.html" class="logo">
+                <img src="img/logo.PNG" alt="個別指導塾ステップアップゼミ" class="logo-img">
+            </a>
+            <a href="index.html" class="back-link sp-only">
+                <i class="fa-solid fa-chevron-left"></i> 戻る
+            </a>
+
+            <!-- デスクトップ用：電話番号＆受付時間（PC時のみ表示） -->
+            <div class="header-contact pc-only">
+
+                <!--上段-->
+                <div class="contact-top">
+                    <span class="contact-lead">お電話でのお問い合わせはこちら</span>
+                    <a href="tel:0120-123-456" class="tel-number">
+                        <i class="fa-solid fa-phone tel-icon"></i>
+                        00-0000-0000
+                    </a>
+                </div>
+
+                <!--下段-->
+                <div class="contact-bottom">
+                    <p class="contact-time">[受付時間] 平日 14:00〜22:00</p>
+                </div>
+            </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="cta-container">
+
+            <!-- フォームカード -->
+            <div class="form-card">
+
+                <!-- フォームヘッダー -->
+                <div class="form-header">
+                    <h1 class="form-title">
+                        <i class="fa-solid fa-pencil title-icon"></i>
+                        無料体験授業
+                    </h1>
+                    <p class="form-subtitle">
+                        まずはお気軽に無料体験へ！<br>
+                        約1分でお申し込みできます。
+                    </p>
+                </div>
+
+                <!-- 入力フォーム -->
+                <form action="#" method="post" class="cta-form">
+
+                    <!-- 生徒氏名（漢字） -->
+                    <div class="form-group">
+                        <label for="student-name" class="form-label">
+                            生徒氏名（漢字）
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="text" id="student-name" name="student_name" placeholder="例）山田 太郎" required
+                            class="form-control">
+                    </div>
+
+                    <!-- 生徒氏名（フリガナ） -->
+                    <div class="form-group">
+                        <label for="student-kana" class="form-label">
+                            生徒氏名（フリガナ）
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="text" id="student-kana" name="student_kana" placeholder="例）ヤマダ タロウ" required
+                            class="form-control">
+                    </div>
+
+                    <!-- 性別 -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            性別
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" required class="form-radio">
+                                <span>男</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female" required class="form-radio">
+                                <span>女</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other" required class="form-radio">
+                                <span>その他</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 学年 -->
+                    <div class="form-group">
+                        <label for="grade" class="form-label">
+                            学年
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="grade" name="grade" required class="form-control select-control">
+                                <option value="" disabled selected>選択してください</option>
+                                <optgroup label="小学生">
+                                    <option value="p1">小学1年生</option>
+                                    <option value="p2">小学2年生</option>
+                                    <option value="p3">小学3年生</option>
+                                    <option value="p4">小学4年生</option>
+                                    <option value="p5">小学5年生</option>
+                                    <option value="p6">小学6年生</option>
+                                </optgroup>
+                                <optgroup label="中学生">
+                                    <option value="j1">中学1年生</option>
+                                    <option value="j2">中学2年生</option>
+                                    <option value="j3">中学3年生</option>
+                                </optgroup>
+                                <optgroup label="高校生">
+                                    <option value="h1">高校1年生</option>
+                                    <option value="h2">高校2年生</option>
+                                    <option value="h3">高校3年生</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <p class="form-note">※小学生1年生〜高校3年生まで選択できます</p>
+                    </div>
+
+                    <!-- 希望日時 -->
+                    <div class="form-group">
+                        <label for="preferred-datetime" class="form-label">
+                            希望日時
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="datetime-local" id="preferred-datetime" name="preferred_datetime" required
+                            class="form-control">
+                    </div>
+
+                    <!-- 電話番号 -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            電話番号
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" placeholder="例）090-1234-5678" required
+                            class="form-control">
+                    </div>
+
+                    <!-- メールアドレス -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            メールアドレス
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="例）example@up-zemi.com" required
+                            class="form-control">
+                    </div>
+
+                    <!-- お問い合わせ（任意） -->
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            お問い合わせ（任意）
+                            <span class="badge badge-optional">任意</span>
+                        </label>
+                        <textarea id="message" name="message" rows="4" placeholder="ご質問・ご相談などがあればご入力ください。"
+                            class="form-control textarea-control"></textarea>
+                    </div>
+
+                    <!-- プライバシーポリシー同意 -->
+                    <div class="privacy-box">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consent" required class="form-checkbox">
+                            <span class="checkbox-text">
+                                <a href="privacy.html" target="_blank" class="privacy-link">プライバシーポリシー</a>に同意する
+                            </span>
+                        </label>
+                        <p class="privacy-subtext">「プライバシーポリシー」をクリックすると、別ページで内容をご確認いただけます。</p>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <div class="submit-wrapper">
+                        <button type="submit" class="btn-submit">
+                            無料体験授業を申し込む
+                        </button>
+                        <p class="submit-note">※個人情報はお問い合わせ対応以外には使用いたしません。</p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <p class="copyright">&copy; 個別指導塾ステップアップゼミ All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
