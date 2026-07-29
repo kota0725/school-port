@@ -4,20 +4,25 @@
    ベース設定 & LP共通カラー変数
    ========================================== */
 :root {
-    --color-main: #1a73e8;
-    /* 塾メインカラー（青） */
-    --color-main-dark: #1557b0;
-    /* ホバー時等の濃い青 */
-    --color-bg-base: #f4f9ff;
-    /* 全体背景色（極めて薄い青） */
-    --color-text-title: #1a202c;
+    --color-main: #2563EB;
+    /* メイン */
+    --color-accent: #F59E0B;
+    /* アクセント */
+    --color-bg-base: #F8FEFF;
+    /* 全体背景 */
+    --color-bg-section: #EEF5FF;
+    /* セクション背景 */
+    --color-bg-card: #FFFFFF;
+    /* カード背景 */
+    --color-text-title: #1E293B;
     /* 見出し文字 */
-    --color-text-body: #4a5568;
+    --color-text-body: #475569;
     /* 本文文字 */
-    --color-border: #e2e8f0;
-    /* ボーダー枠線 */
-    --color-card-bg: #ffffff;
-    /* カード背景（白） */
+    --color-text-sub: #64748B;
+    /* 補助文字 */
+    --color-border: #DCE8F7;
+    /* ボーダー */
+    --font-base: 'Noto Sans JP', sans-serif;
 }
 
 html {
