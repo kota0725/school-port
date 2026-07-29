@@ -149,7 +149,7 @@ body {
     padding: 60px 16px 40px 16px;
     box-sizing: border-box;
 
-    background-image: url('../img/consept.PNG');
+    background-image: url('img/consept.PNG');
     background-repeat: no-repeat;
     background-size: cover;
     /* 👈 400%から微調整。顔が少し下がり、文字の下（隙間）に綺麗にのぞく位置に調整しました */
@@ -1551,7 +1551,7 @@ body {
 /* 💡 背景写真をクッキリ濃く調整 */
 .cta-container {
     /* グラデーションの白の不透明度を下げ、写真がしっかり見えるように変更 */
-    background-image: linear-gradient(to bottom, rgba(244, 249, 255, 0.6) 0%, rgba(244, 249, 255, 0) 20%, #f4f9ff 95%), url('../img/mobile-cta.png');
+    background-image: linear-gradient(to bottom, rgba(244, 249, 255, 0.6) 0%, rgba(244, 249, 255, 0) 20%, #f4f9ff 95%), url('img/mobile-cta.png');
     background-size: cover;
     background-position: center 15%;
     background-repeat: no-repeat;
@@ -1936,7 +1936,7 @@ body {
         padding: 80px 10%;
 
         /* 👈 ★ここを新しい画像「student.PNG」に変更します！ */
-        background-image: url('../img/student.PNG');
+        background-image: url('img/student.PNG');
         background-repeat: no-repeat;
 
         /* 画像が画面からはみ出したり潰れたりしないよう、PC画面の右側に綺麗にフィットさせます */
@@ -2538,7 +2538,7 @@ body {
    ========================================== */
 
     .final-cta-section {
-        background-image: url('../img/student-cta.png');
+        background-image: url('img/student-cta.png');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
