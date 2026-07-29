@@ -348,6 +348,21 @@ body {
     text-decoration: underline;
 }
 
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--color-border);
+    background-color: #ffffff;
+}
+
+.site-footer p,
+.copyright {
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-text-sub);
+    line-height: 1.5;
+}
+
 
 
 
@@ -473,49 +488,58 @@ body {
     /* ==========================================
            フッターセクション（PC版レイアウト）
            ========================================== */
-           .site-footer {
-            padding: 60px 40px;
-            /* PCは上下にゆとりを持たせる */
-        }
-    
-        /* 横並びにして左右の端にきれいに分散配置 */
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-    
-        .footer-info {
-            margin-bottom: 0;
-            flex: 0 0 350px;
-            /* 左側の情報エリアの幅を固定 */
-        }
-    
-        .footer-info .logo {
-            max-width: 200px;
-            /* PC版はロゴを少し大きく */
-            margin-bottom: 18px;
-        }
-    
-        .footer-info p {
-            font-size: 14px;
-        }
-    
-        /* ナビゲーションメニューをPC用に綺麗に展開 */
-        .footer-nav {
-            flex: 1;
-            max-width: 650px;
-            /* 右側に寄りすぎないように幅を制限 */
-        }
-    
-        .footer-nav ul {
-            grid-template-columns: repeat(3, 1fr);
-            /* 💡 PC版は横幅に合わせてスッキリ3列（または2列） */
-            gap: 16px 30px;
-        }
-    
-        .footer-nav a {
-            font-size: 14px;
-        }
-    
+    .site-footer {
+        padding: 60px 40px;
+        /* PCは上下にゆとりを持たせる */
+    }
+
+    /* 横並びにして左右の端にきれいに分散配置 */
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-info {
+        margin-bottom: 0;
+        flex: 0 0 350px;
+        /* 左側の情報エリアの幅を固定 */
+    }
+
+    .footer-info .logo {
+        max-width: 200px;
+        /* PC版はロゴを少し大きく */
+        margin-bottom: 18px;
+    }
+
+    .footer-info p {
+        font-size: 14px;
+    }
+
+    /* ナビゲーションメニューをPC用に綺麗に展開 */
+    .footer-nav {
+        flex: 1;
+        max-width: 650px;
+        /* 右側に寄りすぎないように幅を制限 */
+    }
+
+    .footer-nav ul {
+        grid-template-columns: repeat(3, 1fr);
+        /* 💡 PC版は横幅に合わせてスッキリ3列（または2列） */
+        gap: 16px 30px;
+    }
+
+    .footer-nav a {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        padding: 24px 20px;
+    }
+
+    .site-footer p,
+    .copyright {
+        font-size: 12px;
+    }
+
 }

@@ -1823,7 +1823,20 @@ body {
     text-decoration: underline;
 }
 
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--color-border);
+    background-color: #ffffff;
+}
 
+.site-footer p,
+.copyright {
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-text-sub);
+    line-height: 1.5;
+}
 
 
 
@@ -2785,6 +2798,15 @@ body {
 
     .footer-nav a {
         font-size: 14px;
+    }
+
+    .site-footer {
+        padding: 24px 20px;
+    }
+
+    .site-footer p,
+    .copyright {
+        font-size: 12px;
     }
 
 }
