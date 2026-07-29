@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料請求のお申し込み | 個別指導塾ステップアップゼミ</title>
+
+    <link rel="icon" href="img/favi1.png" sizes="any">
+
+    <!-- Google Fonts (Noto Sans JP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 1. リセットCSS (destyle.css) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css">
+
+    <!-- 2. 独自スタイルシート -->
+    <link rel="stylesheet" href="cta.css">
+</head>
+
+<body>
+
+    <!-- ヘッダー -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- ロゴ画像の配置 -->
+            <a href="index.html" class="logo">
+                <img src="img/logo.PNG" alt="個別指導塾ステップアップゼミ" class="logo-img">
+            </a>
+            <a href="index.html" class="back-link sp-only">
+                <i class="fa-solid fa-chevron-left"></i> 戻る
+            </a>
+
+            <!-- デスクトップ用：電話番号＆受付時間（PC時のみ表示） -->
+            <div class="header-contact pc-only">
+
+                <!--上段-->
+                <div class="contact-top">
+                    <span class="contact-lead">お電話でのお問い合わせはこちら</span>
+                    <a href="tel:0120-123-456" class="tel-number">
+                        <i class="fa-solid fa-phone tel-icon"></i>
+                        00-0000-0000
+                    </a>
+                </div>
+
+                <!--下段-->
+                <div class="contact-bottom">
+                    <p class="contact-time">[受付時間] 平日 14:00〜22:00</p>
+                </div>
+            </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="cta-container">
+            <div class="form-card">
+
+                <!-- フォームヘッダー -->
+                <div class="form-header">
+                    <h1 class="form-title">
+                        <i class="fa-solid fa-book-open title-icon"></i>
+                        資料請求
+                    </h1>
+                    <p class="form-subtitle">
+                        塾の詳しい資料をお送りします。<br>
+                        お気軽にご請求ください。
+                    </p>
+                </div>
+
+                <!-- 入力フォーム -->
+                <form action="#" method="post" class="cta-form">
+
+                    <!-- 生徒氏名（漢字） -->
+                    <div class="form-group">
+                        <label for="student_name" class="form-label">
+                            生徒氏名（漢字）
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="text" id="student_name" name="student_name" class="form-control"
+                            placeholder="例）山田 太郎" required>
+                    </div>
+
+                    <!-- 生徒氏名（フリガナ） -->
+                    <div class="form-group">
+                        <label for="student_kana" class="form-label">
+                            生徒氏名（フリガナ）
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="text" id="student_kana" name="student_kana" class="form-control"
+                            placeholder="例）ヤマダ タロウ" required>
+                    </div>
+
+                    <!-- 性別 -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            性別
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="male" required class="form-radio">
+                                <span>男</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="female" required class="form-radio">
+                                <span>女</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="other" required class="form-radio">
+                                <span>その他</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 学年 -->
+                    <div class="form-group">
+                        <label for="grade" class="form-label">
+                            学年
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="grade" name="grade" class="form-control select-control" required>
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="elem1">小学1年生</option>
+                                <option value="elem2">小学2年生</option>
+                                <option value="elem3">小学3年生</option>
+                                <option value="elem4">小学4年生</option>
+                                <option value="elem5">小学5年生</option>
+                                <option value="elem6">小学6年生</option>
+                                <option value="jhs1">中学1年生</option>
+                                <option value="jhs2">中学2年生</option>
+                                <option value="jhs3">中学3年生</option>
+                                <option value="hs1">高校1年生</option>
+                                <option value="hs2">高校2年生</option>
+                                <option value="hs3">高校3年生</option>
+                            </select>
+                        </div>
+                        <p class="form-note">※小学生1年生〜高校3年生まで選択できます</p>
+                    </div>
+
+                    <!-- 郵便番号 -->
+                    <div class="form-group">
+                        <label for="zipcode" class="form-label">
+                            郵便番号
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="text" id="zipcode" name="zipcode" class="form-control" placeholder="例）123-4567"
+                            required>
+                    </div>
+
+                    <!-- 都道府県（選択式） -->
+                    <div class="form-group">
+                        <label for="prefecture" class="form-label">
+                            都道府県
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="prefecture" name="prefecture" class="form-control select-control" required>
+                                <option value="" disabled selected>選択してください</option>
+                                <option value="北海道">北海道</option>
+                                <option value="青森県">青森県</option>
+                                <option value="岩手県">岩手県</option>
+                                <option value="宮城県">宮城県</option>
+                                <option value="秋田県">秋田県</option>
+                                <option value="山形県">山形県</option>
+                                <option value="福島県">福島県</option>
+                                <option value="茨城県">茨城県</option>
+                                <option value="栃木県">栃木県</option>
+                                <option value="群馬県">群馬県</option>
+                                <option value="埼玉県">埼玉県</option>
+                                <option value="千葉県">千葉県</option>
+                                <option value="東京都">東京都</option>
+                                <option value="神奈川県">神奈川県</option>
+                                <option value="新潟県">新潟県</option>
+                                <option value="富山県">富山県</option>
+                                <option value="石川県">石川県</option>
+                                <option value="福井県">福井県</option>
+                                <option value="山梨県">山梨県</option>
+                                <option value="長野県">長野県</option>
+                                <option value="岐阜県">岐阜県</option>
+                                <option value="静岡県">静岡県</option>
+                                <option value="愛知県">愛知県</option>
+                                <option value="三重県">三重県</option>
+                                <option value="滋賀県">滋賀県</option>
+                                <option value="京都府">京都府</option>
+                                <option value="大阪府">大阪府</option>
+                                <option value="兵庫県">兵庫県</option>
+                                <option value="奈良県">奈良県</option>
+                                <option value="和歌山県">和歌山県</option>
+                                <option value="鳥取県">鳥取県</option>
+                                <option value="島根県">島根県</option>
+                                <option value="岡山県">岡山県</option>
+                                <option value="広島県">広島県</option>
+                                <option value="山口県">山口県</option>
+                                <option value="徳島県">徳島県</option>
+                                <option value="香川県">香川県</option>
+                                <option value="愛媛県">愛媛県</option>
+                                <option value="高知県">高知県</option>
+                                <option value="福岡県">福岡県</option>
+                                <option value="佐賀県">佐賀県</option>
+                                <option value="長崎県">長崎県</option>
+                                <option value="熊本県">熊本県</option>
+                                <option value="大分県">大分県</option>
+                                <option value="宮崎県">宮崎県</option>
+                                <option value="鹿児島県">鹿児島県</option>
+                                <option value="沖縄県">沖縄県</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 住所 -->
+                    <div class="form-group">
+                        <label for="address" class="form-label">
+                            住所
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="text" id="address" name="address" class="form-control"
+                            placeholder="例）東京都〇〇区〇〇町 1-2-3" required>
+                    </div>
+
+                    <!-- 電話番号 -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            電話番号
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="例）090-1234-5678"
+                            required>
+                    </div>
+
+                    <!-- メールアドレス -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            メールアドレス
+                            <span class="badge badge-required">必須</span>
+                        </label>
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="例）example@up-zemi.com" required>
+                    </div>
+
+                    <!-- お問い合わせ（任意） -->
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            お問い合わせ（任意）
+                            <span class="badge badge-optional">任意</span>
+                        </label>
+                        <textarea id="message" name="message" rows="4" placeholder="ご質問・ご相談などがあればご入力ください。"
+                            class="form-control textarea-control"></textarea>
+                    </div>
+
+                    <!-- プライバシーポリシー同意 -->
+                    <div class="privacy-box">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="consent" required class="form-checkbox">
+                            <span class="checkbox-text">
+                                <a href="privacy.html" target="_blank" class="privacy-link">プライバシーポリシー</a>に同意する
+                            </span>
+                        </label>
+                        <p class="privacy-subtext">「プライバシーポリシー」をクリックすると、別ページで内容をご確認いただけます。</p>
+                    </div>
+
+                    <!-- 送信ボタン -->
+                    <div class="submit-wrapper">
+                        <button type="submit" class="btn-submit">資料を請求する</button>
+                        <p class="submit-note">※個人情報は資料の送付およびお問い合わせ対応以外には使用いたしません。</p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <p>&copy; 個別指導塾ステップアップゼミ All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
