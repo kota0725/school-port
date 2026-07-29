@@ -1745,14 +1745,15 @@ body {
    ========================================== */
 .site-footer {
     background-color: #f0f4f9;
-    /* ワイヤーフレームの薄いブルーベース */
-    padding: 40px 20px 30px 20px;
+    padding: 40px 20px 0 20px;
+    /* 下部余白はコピーライト側で調整 */
     font-family: sans-serif;
 }
 
 .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 30px;
 }
 
 /* 左側（上部）：ロゴと塾情報 */
@@ -1762,7 +1763,6 @@ body {
 
 .footer-info .logo {
     max-width: 180px;
-    /* ロゴの表示サイズを適切に制限 */
     height: auto;
     margin-bottom: 15px;
 }
@@ -1776,7 +1776,6 @@ body {
 .footer-info p {
     font-size: 13px;
     color: #475569;
-    /* 落ち着いたダークグレー */
     line-height: 1.6;
     margin: 0;
 }
@@ -1788,7 +1787,7 @@ body {
     margin: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* 💡 モバイル版はワイヤーフレーム通り綺麗な2列 */
+    /* モバイルは2列 */
     gap: 12px 20px;
 }
 
@@ -1796,18 +1795,25 @@ body {
     margin: 0;
 }
 
+/* 💡【重要】文字数の多い特定商取引法を1行で全幅表示にする */
+.footer-nav li.full-width {
+    grid-column: 1 / -1;
+    /* 1列目から最後までの幅（全幅）を広々と使う */
+}
+
 .footer-nav a {
     display: inline-block;
     color: #1a73e8;
-    /* リンクカラー */
     font-size: 13px;
     text-decoration: none;
     position: relative;
     padding-left: 12px;
     transition: color 0.2s ease;
+    white-space: nowrap;
+    /* 💡【重要】テキストの途中で改行させない */
 }
 
-/* ワイヤーフレームにあるリンク左側の「＞」マークを再現 */
+/* リンク左側の「＞」マーク */
 .footer-nav a::before {
     content: '＞';
     position: absolute;
@@ -1823,23 +1829,23 @@ body {
     text-decoration: underline;
 }
 
-.site-footer {
+/* コピーライト部分 */
+.footer-copyright {
     text-align: center;
     padding: 20px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border, #dce8f7);
     background-color: #ffffff;
+    margin-left: -20px;
+    /* site-footer の padding 分外側に広げて全幅にする */
+    margin-right: -20px;
 }
 
-.site-footer p,
 .copyright {
     margin: 0;
     font-size: 12px;
-    color: var(--color-text-sub);
+    color: var(--color-text-sub, #64748B);
     line-height: 1.5;
 }
-
-
-
 
 
 
@@ -2767,10 +2773,10 @@ body {
         align-items: flex-start;
     }
 
+
     .footer-info {
         margin-bottom: 0;
-        flex: 0 0 350px;
-        /* 左側の情報エリアの幅を固定 */
+
     }
 
     .footer-info .logo {
@@ -2788,6 +2794,10 @@ body {
         flex: 1;
         max-width: 650px;
         /* 右側に寄りすぎないように幅を制限 */
+    }
+
+    .footer-nav li.full-width {
+        grid-column: auto;
     }
 
     .footer-nav ul {
